@@ -46,3 +46,9 @@ group :development do
   # gem "spring"
 end
 
+
+gem "bundler-audit", "~> 0.9.1"
+
+gem "brakeman", "~> 6.0"
+
+gem "rubocop", "~> 1.56"
