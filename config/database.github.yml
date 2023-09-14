@@ -5,4 +5,4 @@ test:
   port: 5432
   username: rails
   password: password
-  database: rails_test
+  database: job_service_test
