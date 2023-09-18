@@ -51,3 +51,5 @@ gem "bundler-audit", "~> 0.9.1"
 gem "brakeman", "~> 6.0"
 
 gem "rubocop", "~> 1.56"
+
+gem "aws-sdk-s3", "~> 1.134"
