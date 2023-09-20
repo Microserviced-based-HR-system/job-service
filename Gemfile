@@ -48,6 +48,13 @@ group :development do
   gem "rails-erd", "~> 1.7"
 end
 
+group :test do
+  gem "rspec-rails", "~> 6.0"
+  gem "factory_bot_rails", "~> 6.2"
+  gem "faker", "~> 3.2"
+  gem "shoulda-matchers", "~> 5.3"
+end
+
 gem "bundler-audit", "~> 0.9.1"
 
 gem "brakeman", "~> 6.0"
