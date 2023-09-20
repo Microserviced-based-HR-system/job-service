@@ -49,6 +49,8 @@ jobs:
         run: bundle exec rails test
       - name: Run system tests
         run: bundle exec rails test:system
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
   lint:
     runs-on: ubuntu-latest
     steps:
