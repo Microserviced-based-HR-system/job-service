@@ -1,0 +1,26 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  job_type: one
+  company_id: 1234567890
+  title: MyString1
+  description: MyString1
+  requirements: MyString1
+  expired_date: <%= Time.now + 1.month %>
+  location: MyString1
+  no_of_vacancies: 3
+
+two:
+  job_type: one
+  company_id: 1234567891
+  title: MyString2
+  description: MyString2
+  requirements: MyString2
+  expired_date: <%= Time.now + 2.month %>
+  status: :open
+  location: MyString2
+  no_of_vacancies: 6
