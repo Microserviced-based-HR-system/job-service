@@ -10,4 +10,10 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  # require "simplecov"
+  # SimpleCov.start
+
+  # require 'simplecov-cobertura'
+  # SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
