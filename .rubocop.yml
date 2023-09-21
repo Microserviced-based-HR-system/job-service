@@ -13,6 +13,8 @@ AllCops:
     - "vendor/**/*"
     - "spec/rails_helper.rb"
     - "spec/spec_helper.rb"
+Style/RedundantBegin:
+  Enabled: false
 Style/TrailingCommaInHashLiteral:
   Enabled: false
 Style/ConditionalAssignment:
