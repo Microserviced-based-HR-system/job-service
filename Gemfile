@@ -74,3 +74,5 @@ gem "rubocop", "~> 1.56"
 gem "aws-sdk-s3", "~> 1.134"
 
 gem "jsonapi-serializer", "~> 2.2"
+
+gem "pagy", "~> 6.0"

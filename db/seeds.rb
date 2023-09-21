@@ -6,15 +6,22 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-require 'faker'
-require 'factory_bot_rails'
+require "faker"
+require "factory_bot_rails"
 
 puts "Creating seeds..."
+
+job_types = ["Permanent", "Contract", "Remote", "Temporary", "Part-time", "Internship", "Seasonal", "Freelance"]
+
+job_types.each do |type|
+  JobType.find_or_create_by(name: type)
+end
+puts "JobTypes created"
 
 job_type = FactoryBot.create(:job_type)
 puts "JobType created"
 
-job = FactoryBot.create(:job, job_type: job_type)
+job = FactoryBot.create(:job, job_type: JobType.first)
 job.open!
 puts "Job created"
 
