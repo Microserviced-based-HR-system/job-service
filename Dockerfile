@@ -21,8 +21,13 @@ RUN bundle install --jobs 20 --retry 5
 # Copy over our application code
 ADD . $APP_HOME
 
-# Configure endpoint.
-COPY /entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
+
+# Start the puma server
+CMD bundle exec puma -p 3000
+
+# # Configure endpoint.
+# COPY /entrypoint.sh /usr/bin/
+# RUN chmod +x /usr/bin/entrypoint.sh
+# ENTRYPOINT ["entrypoint.sh"]
+# EXPOSE 3000
