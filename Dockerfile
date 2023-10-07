@@ -21,7 +21,14 @@ RUN bundle install --jobs 20 --retry 5
 # Copy over our application code
 ADD . $APP_HOME
 
+# Set our environment variables
+# ENV RAILS_ENV staging
+# ENV RAILS_LOG_TO_STDOUT true
+
 EXPOSE 3000
+
+# # Start the rails server
+# CMD ["rails", "server", "-b", "0.0.0.0"]
 
 # Start the puma server
 CMD bundle exec puma -p 3000

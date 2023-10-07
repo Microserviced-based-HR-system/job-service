@@ -12,7 +12,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_HOST_AUTH_METHOD: trust
       RAILS_ENV: development
-      PGDBNAME: job-service-db
+      PGDBNAME: job_service_development
     volumes:
       - .:/app
     # command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -23,14 +23,14 @@ services:
 
   # PostgreSQL database
   db:
-    image: postgres:latest
+    image: postgres:15
     environment:
       PGHOST: db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_HOST_AUTH_METHOD: trust
       RAILS_ENV: development
-      PGDBNAME: job-service-db
+      PGDBNAME: job_service_development
     volumes:
       - "postgresDB:/var/lib/postgresql/data"
     healthcheck:
