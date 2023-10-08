@@ -288,7 +288,7 @@ DEPENDENCIES
   pagy (~> 6.0)
   pg (~> 1.1)
   puma (~> 5.0)
-  rack-cors (~> 2.0)
+  rack-cors
   rails (~> 7.0.8)
   rails-erd (~> 1.7)
   rspec-rails (~> 6.0)
