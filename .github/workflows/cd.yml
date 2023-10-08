@@ -41,14 +41,15 @@ jobs:
         id: install
 
       - name: Update kube config
-        run: aws eks update-kubeconfig --name job-service-cluster --region ap-southeast-1
+        run: aws eks update-kubeconfig --name job-service --region ap-southeast-1
 
-      - name: Deploy image to Amazon EKS
+      - name: Apply K8 web configs
         run: |
-          kubectl apply -f eks/aws-auth.yaml
-          kubectl apply -f eks/deployment.yaml
-          kubectl apply -f eks/service.yaml
-          kubectl apply -f eks/ingress.yaml
+          kubectl apply -f k8/web/aws-auth.yaml
+          kubectl apply -f k8/web/configmap.yaml
+          kubectl apply -f k8/web/deployment.yaml
+          kubectl apply -f k8/web/service.yaml
+          kubectl apply -f k8/web/ingress.yaml
 
       - name: Deploy to Kubernetes cluster
         uses: kodermax/kubectl-aws-eks@master
