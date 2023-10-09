@@ -14,7 +14,11 @@
 #
 
 require "simplecov"
-SimpleCov.start
+SimpleCov.start do
+  add_filter "config/**/*"
+  add_filter "spec/factories/**/*"
+  add_filter "spec/requests/**/*"
+end
 
 require 'simplecov-cobertura'
 SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
