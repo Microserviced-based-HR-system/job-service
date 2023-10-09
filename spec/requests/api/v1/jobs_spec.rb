@@ -1,6 +1,5 @@
 require 'swagger_helper'
 
-# rubocop:disable Metrics/BlockLength, Layout/LineLength
 RSpec.describe 'api/v1/jobs', type: :request do
   path '/api/v1/jobs' do
     get('list jobs') do
@@ -228,4 +227,3 @@ RSpec.describe 'api/v1/jobs', type: :request do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength, Layout/LineLength
