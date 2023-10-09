@@ -52,18 +52,7 @@ jobs:
           kubectl apply -f k8/web/ingress.yaml
 
       - name: Deploy to Kubernetes cluster
-        uses: kodermax/kubectl-aws-eks@master
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          KUBE_NAMESPACE: production
-          RELEASE_REVISION: "pr-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}"
-          RELEASE_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.REGISTRY }}:${{ env.RELEASE_REVISION }}
-        with:
-          args: set image deployment/${{ env.REPOSITORY }} app=${{ env.RELEASE_IMAGE }} --record -n $KUBE_NAMESPACE
+        run: kubectl rollout restart deployment job-service-deployment
 
       - name: Verify deployment to Kubernetes cluster
-        uses: kodermax/kubectl-aws-eks@master
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-        with:
-          args: rollout status deployment/${{ env.REPOSITORY }}
+        run: kubectl get deployments job-service-deployment
