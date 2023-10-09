@@ -15,3 +15,19 @@ docker compose up
 Entity Relationship Diagram
 
 ![erd](images/erd.png)
+
+**Documenting APIs with Swagger**
+
+https://github.com/rswag/rswag
+
+https://betterprogramming.pub/documenting-ruby-on-rails-apis-using-rswag-gem-48c92e11ea30
+
+```shell
+  docker compose build
+  docker compose run web rake rswag:specs:swaggerize
+  docker compose up
+```
+
+http://127.0.0.1:3000/api-docs/index.html
+
+![swagger-ui](images/swagger-ui.png)
