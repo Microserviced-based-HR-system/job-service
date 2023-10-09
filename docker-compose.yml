@@ -23,7 +23,7 @@ services:
 
   # PostgreSQL database
   db:
-    image: postgres:latest
+    image: postgres:15
     environment:
       PGHOST: db
       POSTGRES_USER: postgres

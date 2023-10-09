@@ -1,0 +1,29 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJSm45V1JLWGhVQm93RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBNU1qWXhNVFV6TXpWYUZ3MHpNekE1TWpNeE1UVXpNelZhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUNta1RNUm9wZVdyaU1yM00rUnZMUGlJTkNNamF3Ly80U0pyRS83cDJETTNva01DOGt4RktKbG9lei8KekJSZW5aZGYweW5uaTRUbC9qUVJkb3BiVEdYem9pTVhjV0dWSjR1UGVqQVdXei9NaVFxVXg0cjRtUitjNjdVUAp2Wk40RXNielYzempMaU5UT29hY1l2Q1lJbUNWU05FRXdEUkxGeWU3TnV5dGQxSEE4SFlJZExtNURJdHBmZUN2CnZzSFpRbE50STAybiswN2tZUW1NQjJualpzZzVqbW1rWktXWVErb2dsdTg0TjZ2ZUFuWSs1V2NuN2hoQzBUNXAKWkZmd0UrTVF0TzA0UWZQeko5Z1Nnb1VkSXpVMG1uM2ZlUXd2SHl2dCtTdjRVWGRRUXh4a285UXhKMkg4dzN0Qgp1Nkp3RVBaWnBUZ1JoNVYrbW1aWXVjR0ZtenczQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJUUTMxakY1S3hEWkFmUno4STc0R0lKSFZtRElqQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQXJaRm5KMEdnNQpjVGp0NWFMaGZzVTdLYkhiZWRmM3Q4RGcxbjBJRVo4QnY5czhIZ2VPZ2VxWU85R3FDSHN6YTk2Sk5pTUwxM0x5CnpWTW1BemttdDF0bVJoUVY4MXhoM1NZcGJKZzBmOGpRcGxrVnEvc2lDaGYyQzhXamZxTHZEMVU4SDNyUGxxaTEKQUhRblJXNW0zTzVkR1EvZVlSbWgvZDBNUno1QWQxQ3NMYnBid3I5d3pBZC82T0twMTByM29JcklKSmU2MUFiQQpmYkNLbHVneHV6QTJXYW1OYjJZeWpTYTBtY0hkNVp1NkhZbTlkVmsvd1dxSEZMZ3p6dGtXQUsyV0o4MTZLWFFhCllLUVVFNm52Ym5QWGtUZ09OYmorRmtsRTdmOTd5VTlYT244OGZqYzNha2RYbklLR2E5NUwvNzRuYW9iTUQwbXUKQ1BuWTVVbnBxSURaCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://1FFC3C1A9F7796C76B5CA02A67FC0270.gr7.ap-southeast-1.eks.amazonaws.com
+  name: arn:aws:eks:ap-southeast-1:876708361421:cluster/job-service-cluster
+contexts:
+- context:
+    cluster: arn:aws:eks:ap-southeast-1:876708361421:cluster/job-service-cluster
+    user: arn:aws:eks:ap-southeast-1:876708361421:cluster/job-service-cluster
+  name: arn:aws:eks:ap-southeast-1:876708361421:cluster/job-service-cluster
+current-context: arn:aws:eks:ap-southeast-1:876708361421:cluster/job-service-cluster
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:ap-southeast-1:876708361421:cluster/job-service-cluster
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - ap-southeast-1
+      - eks
+      - get-token
+      - --cluster-name
+      - job-service-cluster
+      - --output
+      - json
+      command: aws

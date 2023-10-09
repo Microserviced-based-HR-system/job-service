@@ -1,0 +1,42 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+availabilityZones:
+  - ap-southeast-1a
+  - ap-southeast-1b
+  - ap-southeast-1c
+
+metadata:
+  name: job-service-v2
+  region: ap-southeast-1
+  version: "1.25"
+  tags:
+    karpenter.sh/discovery: job-service-v2
+    created-by: group1-nus
+    env: job-service-v2
+
+iam:
+  withOIDC: true
+
+vpc:
+  cidr: 10.42.0.0/16
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: true
+
+addons:
+  - name: vpc-cni
+    version: v1.12.5-eksbuild.2
+    configurationValues: '{"env":{"ENABLE_PREFIX_DELEGATION":"true", "ENABLE_POD_ENI":"true", "POD_SECURITY_GROUP_ENFORCING_MODE":"standard"}}'
+    resolveConflicts: overwrite
+
+managedNodeGroups:
+  - name: ng-job-service-v2
+    desiredCapacity: 2
+    minSize: 2
+    maxSize: 4
+    instanceType: t3.medium
+    privateNetworking: true
+    releaseVersion: 1.25.6-20230304
+    labels:
+      workshop-default: "yes"

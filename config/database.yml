@@ -82,8 +82,10 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
 production:
   <<: *default
   database: job_service_production
   username: job_service
   password: <%= ENV["JOB_SERVICE_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
