@@ -78,3 +78,9 @@ gem "jsonapi-serializer", "~> 2.2"
 gem "pagy", "~> 6.0"
 
 gem "rswag", "~> 2.10"
+
+gem "lograge", "~> 0.13.0"
+
+gem "logstash-event", "~> 1.2"
+
+gem "logstash-logger", "~> 0.26.1"
