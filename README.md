@@ -31,3 +31,9 @@ https://betterprogramming.pub/documenting-ruby-on-rails-apis-using-rswag-gem-48c
 http://127.0.0.1:3000/api-docs/index.html
 
 ![swagger-ui](images/swagger-ui.png)
+
+**Integrate with Kibana UI for log management**
+
+https://medium.com/@AnjLab/how-to-set-up-elk-for-rails-log-management-using-docker-and-docker-compose-a6edc290669f
+
+https://medium.com/@nam-nguyen/configuring-docker-elasticsearch-kibana-logstash-to-get-log-rails-98a260350a91
