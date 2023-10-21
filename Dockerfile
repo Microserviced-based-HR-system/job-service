@@ -25,13 +25,19 @@ ADD . $APP_HOME
 # ENV RAILS_ENV staging
 # ENV RAILS_LOG_TO_STDOUT true
 
-EXPOSE 3000
+RUN curl -sL https://deb.nodesource.com/setup_16.x |   bash -
+
+RUN apt-get install -y nodejs
+
+CMD tail -f /dev/null
+
+# EXPOSE 3000
 
 # # Start the rails server
 # CMD ["rails", "server", "-b", "0.0.0.0"]
 
 # Start the puma server
-CMD bundle exec puma -p 3000
+# CMD bundle exec puma -p 3000
 
 # # Configure endpoint.
 # COPY /entrypoint.sh /usr/bin/
