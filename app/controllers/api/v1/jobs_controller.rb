@@ -3,6 +3,7 @@ class Api::V1::JobsController < ApplicationController
   include Pagy::Backend
 
   def index
+    # Rails.logger.info("bazbar, request-id: #{request.request_id}")
     @pagy, @jobs = pagy(Job.order(created_at: :desc), items: params[:per_page])
     render_success("Job List", serialized_jobs, pagy_metadata(@pagy))
   end
