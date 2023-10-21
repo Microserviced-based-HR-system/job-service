@@ -1,53 +1,7 @@
 version: "3"
 services:
-  # Ruby on Rails application
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: bundle exec rails s -p 3000 -e development -b '0.0.0.0'
-    environment:
-      PGHOST: db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_HOST_AUTH_METHOD: trust
-      RAILS_ENV: development
-      PGDBNAME: job_service_development
-      LOGSTASH_HOST: logstash
-    volumes:
-      - .:/app
-    # command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    networks:
-      - elknetwork
-
-  # PostgreSQL database
-  db:
-    image: postgres:15
-    environment:
-      PGHOST: db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_HOST_AUTH_METHOD: trust
-      RAILS_ENV: development
-      PGDBNAME: job_service_development
-    volumes:
-      - "postgresDB:/var/lib/postgresql/data"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-    networks:
-      - elknetwork
-
   elasticsearch:
     image: elasticsearch:7.7.0
-    container_name: elasticsearch
-    hostname: elasticsearch
     environment:
       - "discovery.type=single-node"
     ports:
@@ -58,8 +12,6 @@ services:
 
   kibana:
     image: kibana:7.7.0
-    container_name: kibana
-    hostname: kibana
     ports:
       - 5601:5601
     links:
@@ -71,8 +23,6 @@ services:
 
   logstash:
     image: docker.elastic.co/logstash/logstash:7.7.0
-    container_name: logstash
-    hostname: logstash
     ports:
       - 9600:9600
       - 8089:8089
@@ -86,11 +36,50 @@ services:
     networks:
       - elknetwork
 
+  # Postgre DB
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      PGHOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
+      RAILS_ENV: development
+      PGDBNAME: job_service_development
+    volumes:
+      - postgresDB:/var/lib/postgresql/data
+    networks:
+      - elknetwork
+
+  # Job Service API
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -e development -b '0.0.0.0'
+    environment:
+      PGHOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
+      RAILS_ENV: development
+      PGDBNAME: job_service_development
+      LOGSTASH_HOST: logstash
+    ports:
+      - "3000:3000"
+    volumes:
+      - bundle:/bundle:Z
+      - .:/app:Z
+    depends_on:
+      - db
+    networks:
+      - elknetwork
+
 networks:
-  elknetwork:
-    driver: bridge
+    elknetwork:
+        driver: bridge
 
 volumes:
   elasticsearch: {}
   bundle: {}
-  postgresDB:
+  postgresDB: {}

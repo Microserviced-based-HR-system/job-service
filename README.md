@@ -36,10 +36,14 @@ http://127.0.0.1:3000/api-docs/index.html
 
 https://medium.com/@AnjLab/how-to-set-up-elk-for-rails-log-management-using-docker-and-docker-compose-a6edc290669f
 
-https://medium.com/@nam-nguyen/configuring-docker-elasticsearch-kibana-logstash-to-get-log-rails-98a260350a91
-
 https://blog.gojek.io/structured-logging-in-rails/
 
 ```
 curl -I localhost:3000/api/v1/jobs | grep -i "request"
 ```
+
+https://medium.com/@nam-nguyen/configuring-docker-elasticsearch-kibana-logstash-to-get-log-rails-98a260350a91
+
+https://github.com/namnguyen0802/elk-rails
+
+![kibana-ui](images/kibana-ui.png)

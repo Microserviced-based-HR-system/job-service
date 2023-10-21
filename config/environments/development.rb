@@ -65,10 +65,4 @@ Rails.application.configure do
 
   # https://guides.rubyonrails.org/configuring.html#actiondispatch-hostauthorization
   config.hosts.clear
-
-  # Log management
-  # config.lograge.enabled = true
-  # config.lograge.log_level = :info
-  # config.lograge.formatter = Lograge::Formatters::Logstash.new
-  config.log_formatter = LogFormatter.new
 end
