@@ -8,7 +8,8 @@ data:
   RAILS_ENV: production
   SECRET_KEY_BASE: 6611d970cb62a5cdbe073fdd4cb11044
   PGHOST: 10.100.73.33
-  POSTGRES_USER: postgresql
+  POSTGRES_DB: postgresdb
+  POSTGRES_USER: postgresadmin
   POSTGRES_PASSWORD: admin123
   POSTGRES_HOST_AUTH_METHOD: password
   PGDBNAME: job-service
