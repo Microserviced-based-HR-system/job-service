@@ -22,25 +22,16 @@ RUN bundle install --jobs 20 --retry 5
 ADD . $APP_HOME
 
 # Set our environment variables
-# ENV RAILS_ENV staging
+# ENV RAILS_ENV production
 # ENV RAILS_LOG_TO_STDOUT true
+#ensures our rails logs will be exposed from the container (useful for debugging!)
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x |   bash -
-
-RUN apt-get install -y nodejs
-
-CMD tail -f /dev/null
-
-# EXPOSE 3000
-
-# # Start the rails server
-# CMD ["rails", "server", "-b", "0.0.0.0"]
+EXPOSE 3000
 
 # Start the puma server
-# CMD bundle exec puma -p 3000
+CMD bundle exec puma -p 3000
 
 # # Configure endpoint.
 # COPY /entrypoint.sh /usr/bin/
 # RUN chmod +x /usr/bin/entrypoint.sh
 # ENTRYPOINT ["entrypoint.sh"]
-# EXPOSE 3000
