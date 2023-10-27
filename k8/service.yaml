@@ -5,12 +5,12 @@ metadata:
   labels:
     app.kubernetes.io/created-by: group1-nus
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: http
-      protocol: TCP
-      name: http
+  - port: 80
+    targetPort: http
+    protocol: TCP
+    name: http
   selector:
     app.kubernetes.io/name: job-service
     app.kubernetes.io/instance: job-service
